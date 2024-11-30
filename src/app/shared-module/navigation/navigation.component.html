@@ -1,0 +1,66 @@
+<div class="container">
+    <mat-toolbar color="primary" class="nav-toolbar">
+        <mat-toolbar-row class="mat-toolbar-row">
+          <button mat-icon-button [matMenuTriggerFor]="menu" class="mobile-menu-btn">
+            <mat-icon>menu</mat-icon>
+          </button>
+          
+          <div class="logo-container">
+            <!-- <img src="https://i.ibb.co/4SxrBn4/Screenshot-2024-11-30-at-13-37-05.png" alt="DelhiaStreams Logo" class="logo-img"> -->
+            <h5 class="logo-text">D-streams</h5>
+          </div>
+      
+          
+          <!-- Desktop Navigation Links -->
+          <div class="nav-links">
+            <a mat-button routerLink="/home" routerLinkActive="active">
+              <mat-icon>home</mat-icon>
+              <span>Home</span>
+            </a>
+            <a mat-button routerLink="/movies" routerLinkActive="active">
+              <mat-icon>movie</mat-icon>
+              <span>Movies</span>
+            </a>
+            <a mat-button routerLink="/series" routerLinkActive="active">
+              <mat-icon>tv</mat-icon>
+              <span>Series</span>
+            </a>
+          </div>
+      
+          <!-- Search Bar -->
+          <div class="search-container">
+            <mat-form-field appearance="outline">
+              <mat-icon matPrefix>search</mat-icon>
+              <input matInput placeholder="Search..." [formControl]="searchControl">
+            </mat-form-field>
+          </div>
+      
+          <!-- Login Button -->
+          <a mat-button routerLink="/auth" class="login-btn">
+            <mat-icon>person</mat-icon>
+            <span>Login</span>
+          </a>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      
+      <!-- Mobile Menu -->
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item routerLink="/home">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </a>
+        <a mat-menu-item routerLink="/movies">
+          <mat-icon>movie</mat-icon>
+          <span>Movies</span>
+        </a>
+        <a mat-menu-item routerLink="/series">
+          <mat-icon>tv</mat-icon>
+          <span>Series</span>
+        </a>
+        <a mat-menu-item routerLink="/auth">
+          <mat-icon>person</mat-icon>
+          <span>Login</span>
+        </a>
+      </mat-menu>
+      
+</div>
