@@ -1,0 +1,14 @@
+{
+  "/api": {
+    "target": "https://vidsrc.xyz",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    },
+    "headers": {
+      "Origin": "https://vidsrc.xyz",
+      "Referer": "https://vidsrc.xyz/"
+    }
+  }
+}

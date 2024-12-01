@@ -1,10 +1,11 @@
 import { Url } from "url";
 
-export interface Movie {
+export interface MovieItem {
     id: number;
     title: string;
     description: string;
     image: string;
-    video_url: Url;
-    video_url_2: Url;
+    embed_url: Url;
+    embed_url_tmdb: Url;
+    quality: string;
 }

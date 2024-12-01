@@ -1,10 +1,13 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NgModule, PLATFORM_ID } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { PlayerComponent } from './player/player.component';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { SafeUrlPipe } from "./pipes/safe-url.pipe";
 
 const routes: Routes = [
-  { path: 'stream', component: PlayerComponent }
+  { path: 'stream', component: PlayerComponent },
+  { path: 'tvshow/:id', component: PlayerComponent },
 ];
 
 @NgModule({
@@ -12,7 +15,17 @@ const routes: Routes = [
     PlayerComponent
   ],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    HttpClientModule,
+    RouterModule.forChild(routes),
+    SafeUrlPipe
+],
+providers: [
+  {
+    provide: 'isBrowser',
+    useFactory: (platformId: Object) => isPlatformBrowser(platformId),
+    deps: [PLATFORM_ID]
+  }
+]
 })
 export class MovieModuleModule { }

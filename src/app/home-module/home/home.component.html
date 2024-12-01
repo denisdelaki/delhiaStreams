@@ -1,2 +1,33 @@
 <app-navigation></app-navigation>
+<div class="movie-container">
+    <div class="content-grid">
+        <mat-card *ngFor="let item of contentList" class="movie-card">
+        <mat-card-content>
+            <!-- <video
+            id="my-video"
+            class="video-js"
+            controls
+            preload="auto"
+            width="400"
+            height="360"
+            data-setup="{}"
+            >
+            <source  type="video/mp4" />
+            </video> -->
+            <a href="item.embed_url || item.embed_url_tmdb" target="_blank" ></a>
+            <h2>{{ item.title }}</h2>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="playContent(item)">
+            <mat-icon>play_arrow</mat-icon> Play
+            </button>
+        </mat-card-actions>
+          </mat-card>
+      </div>
+</div>
 
+  <div class="pagination">
+    <button (click)="loadPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="loadPage(currentPage + 1)">Next</button>
+  </div>
